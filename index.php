@@ -29,6 +29,21 @@
         <img src="/mnt/data/aca diseño.png" alt="Imagen" width="300">
     </section>
 
+    <section class="cards">
+    <div class="card">
+      <h3>Tarjeta 1</h3>
+      <p>Este es el contenido de la primera tarjeta.</p>
+    </div>
+    <div class="card">
+      <h3>Tarjeta 2</h3>
+      <p>Otro contenido interesante para mostrar.</p>
+    </div>
+    <div class="card">
+      <h3>Tarjeta 3</h3>
+      <p>Podrías usar estas tarjetas para productos, servicios o artículos.</p>
+    </div>
+  </section>
+
     <footer class="footer">
         <p>&copy; 2025 Nabli. Todos los derechos reservados.</p>
     </footer>
