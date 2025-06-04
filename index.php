@@ -14,9 +14,9 @@
         </div>
         <nav>
             <a href="#">Explorar</a>
-            <a href="#">Títulos</a>
-              <a href="#">cerra sesion</a>
-            <a href="#">Carreras</a>
+            <a href="titulos.php">Títulos</a>
+              <a href="nosotros.php">Sobre nosotros</a>
+            <a href="carreras.php">Carreras</a>
             <a href="registro.php" id="loginBtn">Inicia Sesión</a>
             <a href="#" class="btn-primary">Únete de forma gratuita</a>
         </nav>
@@ -32,6 +32,17 @@
     <section class="cards">
     <div class="card">
       <h3>Tarjeta 1</h3>
+      <p>Este es el contenido de la primera tarjeta.</p>
+    </div>
+    <div class="card">
+      <h3>Tarjeta 2</h3>
+      <p>Otro contenido interesante para mostrar.</p>
+    </div>
+    <div class="card">
+      <h3>Tarjeta 3</h3>
+      <p>Podrías usar estas tarjetas para productos, servicios o artículos.</p>
+    </div>
+    <h3>Tarjeta 1</h3>
       <p>Este es el contenido de la primera tarjeta.</p>
     </div>
     <div class="card">
