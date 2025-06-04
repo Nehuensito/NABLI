@@ -17,7 +17,7 @@
             <a href="#">Títulos</a>
               <a href="#">cerra sesion</a>
             <a href="#">Carreras</a>
-            <a href="#" id="loginBtn">Inicia Sesión</a>
+            <a href="registro.php" id="loginBtn">Inicia Sesión</a>
             <a href="#" class="btn-primary">Únete de forma gratuita</a>
         </nav>
     </header>
