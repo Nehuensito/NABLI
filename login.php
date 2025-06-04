@@ -1,34 +1,44 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-</head>
-<body>
-    <header>
-        <div>
-            <strong>Nabli</strong>
-        </div>
-        <nav>
-            <a href="#">Explorar</a>
-            <a href="#">Títulos</a>
-              <a href="#">cerra sesion</a>
-            <a href="#">Carreras</a>
-            <a href="#" id="loginBtn">Inicia Sesión</a>
-            <a href="#" class="btn-primary">Únete de forma gratuita</a>
-        </nav>
-    </header>
-  <h2>Iniciar Sesión</h2>
+<?php
+session_start();
 
-  <form action="/procesar_login" method="post">
-    <label for="usuario">Usuario:</label><br>
-    <input type="text" id="usuario" name="usuario" required><br><br>
+// Conexión a la base de datos
+$db_host = "localhost";
+$db_user = "root";
+$db_password = "";
+$db_name = "register";
 
-    <label for="contrasena">Contraseña:</label><br>
-    <input type="password" id="contrasena" name="contrasena" required><br><br>
+$conn = mysqli_connect($db_host, $db_user, $db_password, $db_name);
 
-    <input type="submit" value="Entrar">
-  </form>
+if (!$conn) {
+    die("Error al conectar a la base de datos: " . mysqli_connect_error());
+}
 
-</body>
-</html>
+// Obtener datos del formulario
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+// Consulta SQL para verificar las credenciales del usuario
+$query = "SELECT * FROM usuarios WHERE username='$username' AND password='$password'";
+$result = mysqli_query($conn, $query);
+
+if (mysqli_num_rows($result) == 1) {
+    $row = mysqli_fetch_assoc($result);
+
+    // Verificar el permiso de administrador
+    if ($row['is_admin'] == 1) {
+        // Iniciar sesión como administrador
+        $_SESSION['username'] = $username;
+        $_SESSION['is_admin'] = true;
+        header("Location: admin.php"); // Redirigir a la página de administrador
+    } else {
+        // Iniciar sesión como usuario normal
+        $_SESSION['username'] = $username;
+        $_SESSION['is_admin'] = false;
+        header("Location: user.php"); // Redirigir a la página de usuario normal
+    }
+} else {
+    echo "Nombre de usuario o contraseña incorrectos";
+}
+
+mysqli_close($conn);
+?>
